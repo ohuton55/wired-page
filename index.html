@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<head>
+      <meta http-epuiv="content-language" content="ja"><!-- 日本語サイト -->
+      <meta charset="utf-8"><!-- 文字コード -->
+      <meta name="viewport" content="width=360,initial-scale=1"><!-- ビューポート -->
+      <title>wired page</title>
+      <!-- ディスクリプション↓ -->
+      <meta name="description" content="プログラミングを０から知っていく過程で制作したものをまとめていくサイトです。">
+      <meta http-epuiv="X-UA-Compatible" content="IE=edge"><!-- IEの互換モードを防ぐ -->
+      <link rel="icon" href="wp.ico" type="image/x-icon"><!-- ファビコン -->
+      <link rel="stylesheet" href="wp.css">
+      <link href="/code-prettify/prettify.css" type="text/css" rel="stylesheet">
+      <script type="text/javascript" src="/code-prettify/prettify.js"></script>
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      <script>
+      //スムーズにスクロールするjs
+      $(function(){
+        // #のアンカーをクリック時
+        $('a[href^=#]').click(function() {
+          // スクロールのはやさ
+          var speed = 400;   //ミリ秒単位
+          // アンカーの値をひろう
+          var href= $(this).attr("href");
+          //移動先をひろう
+          var target= $(href == "#" || href == "" ? 'html' : href);
+          // 移動先を数値でひろう
+          var position = target.offset().top;
+          // スムーススクロール
+          $('body,html').animate({scrollTop:position}, speed, 'swing');
+          return false;
+        });
+      });
+    </script>
+</head>
+
+<body onload="prettyPrint()">
+  <div class="wrap">
+
+        <div class="kumo">
+            <br><br><br>
+        </div>
+    <header>
+      <div class="robo">
+        <!-- <img src="img/bokun.png" alt="ロボくん" width="80"> -->
+      </div>
+      <div class="title">
+            <div class="top">
+                <p> <img src="img/wp.png" alt="タイトル" width="230"></p>
+            </div>
+            <div class="hallo">
+                <p>プログラミングを０から知っていく過程で
+                  できたものを、制作した際の感想も添えてまとめています。</p>
+            </div>
+      </div>
+          <p><a href="#java" alt="java"><img src="img/down.png" alt="down" width="35" style="padding-top :2em;"></a></p>
+    </header>
+
+          <div class="kumo">
+            <div class="jtitle" id="java">
+                <p><img src="img/java.png" alt="java" width="100"></p>
+
+                <div class="slide">
+                    <div class="clink">
+                        <p><a href="#toshi">歳相応にコメント</a></p>
+                    </div>
+                    <div class="clink">
+                        <p><a href="#toki">時相応にコメント</a></p>
+                    </div>
+                    <div class="clink">
+                        <p><a href="#2zyo">二乗の数値を返す</a></p>
+                    </div>
+                    <div class="clink">
+                        <p><a href="#waru3">割り切れるか返す</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+      <div class="main">
+          <div class="contents" id="toshi">
+            <p class="ctitle">打ち込んだ歳(数値)に対してコメントを返す</p>
+            <div class="sourse">
+                <pre class="prettyprint"><code>  <!-- code prettify　（jsライブラリ） -->
+                <!-- コードを張り付け -->
+                  public class Age {
+                    public static void main(String[] args){
+
+                      //ここに歳を入力
+                      int age = 131;
+
+                      //if文
+                      if(age == 0){
+                        System.out.println("おめでとう！生まれたのね");
+                      }else if(age == 1){
+                        System.out.println("もう" + age + "歳かあ…");
+                      }else if((age >= 2) && (age <= 5)){
+                        System.out.println( age +"歳ってほんと成長速いよね");
+                      }else if((age >=6) && (age <= 12)){
+                        System.out.println("この頃は小学生かあ…" + age +"歳");
+                      }else if(age == 13 || age == 1){
+                        System.out.println("中学生だねぇ");
+                      }else if(age == 14){
+                        System.out.println("よっ！暗黒時代の" + age + "歳！");
+                      }else if((age >= 16) && (age <= 19)){
+                        System.out.println("このころは大人のようで全然子どもなのよ");
+                      }else if(age == 20){
+                        System.out.println("成人おめでと～！");
+                      }else if(age <= 100 && age >= 0){
+                        System.out.println( age + "歳ねぇ。もういっぱしの大人だね～");
+                      }else if(age <= 120){
+                        System.out.println( age + "歳！？とても長生きしたね！");
+                      }
+                      else{
+                        System.out.println("はぁ…ageには常識的な歳の数を入れてよ…");
+                      }
+                    }
+                  }
+
+              </code></pre>
+          </div>
+          <div class="kansou">
+              <p><a href="https://nobuo-create.net" rel="一番かんたんなjava入門" target="_blank">こちらのサイト（一番かんたんなjava入門）</a>を参考にさせて頂きながら、javaについての基礎中の基礎を知りました。
+                本当に何もわからない初心者でも、おかげさまで辛うじてプログラムを動かせるようになりました。無料でこういった知識を得られるのは本当に有難いことです…。<br>
+                <br>
+                if文について学んだ際に、お手本通りにプログラムを打ち込むのではなく、
+                とりあえず自分なりに考えて組んでみようと思い作りました。<br>
+                演算子を使って条件に制限をつけています。最終的に出力される文章は完全に思いつきなので適当です…。<br>
+                <br>
+                いくら長生きの方がこの世にはいるとはいえ、流石に120歳以上は聞いたことがなかったので、それ以降の数字を入力するとプログラムに呆れられます。<br>
+                しかし…！調べてみたところギネス記録での１位はフランス人のジャンヌ・カルマンさんという方で、なんと御年…１２２歳だったそうです…！<br>
+                すごい…世界は広いなとしみじみした思い出があります。<br>
+                <br>
+                思い出といえば、何回も　System.out.prinln("～");を打たなければならず途中から面倒くさくなってしまった記憶があります。省略できそうだけどやり方がわからず
+                もんもんとしていました。</p>
+          </div>
+          <div style="clear: both"></div>  <!-- float解除用の空要素 -->
+        </div>
+
+        <div class="contents" id="toki">
+            <p class="ctitle">打ち込んだ時間(数値)に対してコメントを返す</p>
+            <div class="sourse">
+              <pre class="prettyprint"><code>
+                public class Greeting{
+                  public static void main(String[] args){
+                //宣言
+                    int time = -2;
+                    String massage = "ただ今の時刻は" + time + "時です。";
+                    String greeting = "";
+
+
+                // もしも文
+                    if((time >= 4) && (time <=10)){
+                        greeting = "おはようございます！朝！";
+                      }else if(time == 12){
+                        greeting =  "ごはんちゃんと食べた？";
+                      }else if((time >= 11) && (time <= 17)){
+                        greeting = "こんにちは…睡魔と戦おう";
+                    }else if(time == 18){
+                        greeting = "そろそろご飯の準備だね";
+                    }else if((time >=19 && time <=24) || (time <= 3 && time >= 0)){
+                        greeting = "もう寝ないとやばいよ！";
+                    }else{
+                        massage = "そんな時間があるとお思いで？";
+                    }
+
+                // ここから実行
+                    System.out.println(massage);
+                    System.out.println(greeting);
+                  }
+                }
+
+              </dode></pre>
+            </div>
+            <div class="kansou">
+                <p>↑の初めて書いたプログラムと似ていますが、前回はいちいち書くのが面倒だった　System.out.println("～");が
+                省略できている点と　新たに　String　を使って文章を代入できている点が変わっています。<br>こちらも、
+                <a link href="https://nobuo-create.net" rel="一番かんたんなjava入門" target="_blank">サイト（いちばん簡単なJava入門）</a>
+                を拝見しながら今度は何も見ないで打ってみました。<br>
+                <br>
+                ……打ってはみたものの結局コマンドプロンプト上でうまく動いてくれず
+                結構見直す羽目になりましたが……<br>
+                <br>
+                コメントのバリエーションパターンの違いもあるとはいえ、↑のプログラムよりもスッキリしていて好きです。
+                スマートなのに、実行すると２行も出てくれるところは初心者からすると嬉しいです。こちらも出力コメントは適当です。<br>
+                <br>
+                また、今回の設定は時間(０～２４)なので int time = ??　の部分に　-2や120などのありえない数値を入れてしまうと、今度はちょっと
+                小馬鹿にしてくるプログラムさんにしてしまいました。<br>
+                <br>
+                常識的に規格外の数値を入れてしまった際、変な出力結果にならないように組むこともできるんですね。よくある、「８桁のパスワードを入力してください」の領域に
+                １０桁のパスワードを入れてしまうと「パスワードが間違っています（怒）」というようなメッセージが出てくるのはコレなのでしょうか…？<br>
+                初歩中の初歩なのはわかってはいても、よくwebサイトで見る動作と同じ指令を出せている…すごい…と素人は感じました。
+                </p>
+            </div>
+            <div style="clear: both"></div>  <!-- float解除用の空要素 -->
+        </div>
+
+        <div class="contents" id="2zyo">
+          <p class="ctitle">打ち込んだ数値の２倍と２乗を計算し、コメントする</p>
+            <div class="sourse">
+              <pre class="prettyprint"><code>
+                public class Math{
+                  public static void main(String[] args){
+
+                    //２倍にしてほしい数値を入力
+                    twice(5);
+                    twice(85);
+                    twice(3247);
+                    twice(57890101);
+
+                    //２乗にしてほしい数値を入力
+                    powerOfTow(10);
+                  }
+
+                  public static void twice(int n){
+                    System.out.println(n + "の２倍は、");
+                    System.out.println(n * 2);
+                  }
+
+                  public static void powerOfTow(int n){
+                    int answer = 1;
+
+                    for( int i=0 ; i< n ; i++){
+                        answer = answer * 2;
+                    }
+
+                    System.out.println("２の" + n + "乗は、");
+                    System.out.println(answer);
+                  }
+
+                }
+
+              </code></pre>
+            </div>
+            <div class="kansou">
+                <p>今回はコメントも一応返してくれますが、文章自体にバリエーションがあるという訳ではなく　答えてくれる数値
+                   を沢山出力している…といったもののようです。twice()　を増やした点以外はほぼお手本通りです。<br>
+                   powerOfTow();はもろにそうですね…なぜ増やさなかったかというと、大文字を打つことが少し苦手だから…です…。
+                   たいへんよくない理由だと思うので、今後は大文字も含んだ名前をバンバンつけていこうと思います。<br>
+                   <br>
+                   for文の新たな使い方として　　for(int i = j ; i < n ; i++){～}　という、条件内でさらに代入が出てくるという
+                   初心者には頭の痛いプログラミングらしい文が出てきました。順をゆっくり追って考えていけば把握できるのですが…。
+                   自分が組んでいないプログラムを読むことになった際に、１２０％ぐらい解釈を間違えてしまいそうで恐ろしいです。<br>
+                   <br>
+                   それと　public static void main(String[] args){～}　のほかに、 また publicでstaticなvoidとして名前が付けられる
+                   大きな箱（考え方がいまいちぼんやりなままですが…）を作れるという点も今回のポイントのようです。
+                   どちらの引数(?)にもn　を使っていますが、ハコが違うので識別は全く問題無いみたいなんですね…。<br>
+                   <br>
+                   answer = answer*2;　って　数学ではありえない文であり…　プログラムの文脈がわからないとただひたすら頭の中が？？？となるばかりで…難しいです！
+                  </p>
+            </div>
+            <div style="clear: both"></div>  <!-- float解除用の空要素 -->
+        </div>
+
+        <div class="contents" id="waru3">
+          <p class="ctitle">打ち込んだ数値が３で割り切れるか判断し、コメントする</p>
+          <div class="sourse">
+            <pre class="prettyprint"><code>
+              public class ReturnTest{
+                public static void main(String[] args){
+                    System.out.println(isMultipleOf3(123456789));
+                }
+                public static String isMultipleOf3(int n){
+                  String resultMessage = "";
+                  if (n % 3 == 0){
+                      resultMessage = n + "は３で割り切れます";
+                  }else{
+                      resultMessage = n + "は３で割り切れません";
+                  }
+                  return resultMessage;
+                }
+
+              }
+
+            </code></pre>
+            </div>
+            <div class="kansou">
+                <p>今までで一番コード量が少ないので少し安心します。
+                   メソッドの戻り値についての解説通りに、これまたお手本に沿って打ち込んだものです。直近のもの２つは
+                   全く自分なりに打てていないので、反省しています。今後は復習の意味としても　とても大切だとは思うので、
+                   できるだけ頑張るぞと思います。<br>
+                   <br>
+                   isMultipleOf3()内に好きな数字を入れると瞬時に割り切れるかどうか判断してくれます。１０桁も余裕です。<br>
+                   そういえば１００桁だとどうなんでしょう…と思いついて、やってみたのですが、　「整数が大きすぎます」　
+                   とのことでエラーになってしまいました。私のノート（Windows 64bit)ではどうも１０桁が限界のようです。スーパーコンピューターであれば
+                   計算してしまうのでしょうか。　１０桁もの数を３で割るのが一瞬…という処理スピードは十分すごいと思いますが…<br>
+                   <br>
+                   前回ではpublic static void ～(　　でしたが今回は　publicでstaticな　String()になっています。
+                   System.out.println()に数値を入れたのに　Stringで文字が返ってくるという。ちょっとだけ進歩できたような心地です。<br>
+                   isMultipleOf3内の　新たに名付けたString である Messageには　””　（空欄）をはじめは代入しておくようですが、
+                   別に文章でもいいのかなと思い入力し、見てみましたが普通に動作しました。しかし永久に表に出ることはないので
+                   完全にどちらでもいいことですね…。他の開発者さんへの隠しメッセージ欄としてなら使えるかもしれません…
+                </p>
+        </div>
+        <div style="clear: both"></div>  <!-- float解除用の空要素 -->
+      </div>
+    </div>
+    </div>
+    <p id="pageTop"><a href="#"><i class="fa fa-chevron-up"></i></a></p> <!-- トップジャンプボタン -->
+      <footer>
+        <div class="prof">
+              <p><img class="icon" src="img/icon.jpg" alt="アイコン"></p>
+              <div class="bun">
+                    <b>kuma</b>
+                    <p>
+                    プログラマーとしてＩＴに関わったお仕事をしてみたいと思っています。麻雀の成績管理ができるAndroidアプリを作ってみたいので、Javaを勉強中です。</p>
+              </div>
+              <ul>
+                <li><p><a href="http://sioto.syoyu.net/" rel="blog" target="_blank"><img src="img/blog.png" alt="blog" height="20" width="20"></a></p></li>
+                <li><p><a href="http://twitter.com/ohuton_55" rel="twitter" target="_blank"><img src="img/twitter.png" alt="twitter" height="20" width="20"></a></li>
+                <li><p><a href="mailto:ssss.no.ssss@gmail.com" rel="mail" target="_blank"><img src="img/mail.png" height="20" width="20"></a></p></li>
+              </ul>
+        </div>
+        <p style="{font-size: 11px;}">Copyright &copy; 2018 kuma All rights reserved.<br>
+          START  2018/06/30</p>  <!-- なぜかCSSでfont-sizeが変わらないため -->
+      </footer>
+
+     <!-- /.wrap --></div>
+
+    <!-- トップへ飛ぶ -->
+    <script>
+    //pageTopボタン
+  $(function(){
+      var topBtn=$('#pageTop');
+      topBtn.hide();
+
+    //ボタンの表示について
+    $(window).scroll(function(){
+      if($(this).scrollTop()>150){
+        //画面を150pxスクロールしたら、表示する
+        topBtn.fadeIn();
+      }else{
+        //画面が150pxより上なら、表示しない
+        topBtn.fadeOut();
+      }
+    });
+
+    //クリック時、上にスクロール
+    topBtn.click(function(){
+      $('body,html').animate({
+        scrollTop: 0},500);
+        return false;
+    });
+
+  });
+</script>
+
+
+  </body>
+
+</html>
